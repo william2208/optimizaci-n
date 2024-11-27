@@ -112,12 +112,12 @@ restricciones.append(presupuesto)
 #Añadir restricciones
 for resitriccion in restricciones:
     costo += resitriccion
-
+print("##################### \nSOLUCIÓN \n#####################")
 costo.solve(PULP_CBC_CMD(msg=False))
 
 for distribuidor in variables:
     for var in distribuidor:
         print(var.name, var.varValue)
-print(costo.objective.value())
+print(f'Resultado presupuesto: {costo.objective.value()}')
 
 
